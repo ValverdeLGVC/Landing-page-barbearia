@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Barbearia do Zé</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to right, black, rgb(14, 1, 37));
+            font-family: Arial, sans-serif;
+            color: aliceblue;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .top-section {
+            height: 60vh;
+            background-image: url('imagens/pexels-thgusstavo-1813272.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-blend-mode: overlay;
+            animation: slide-background 15s infinite ease-in-out alternate;
+        }
+
+        @keyframes slide-background {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo {
+            height: 120px;
+            width: auto;
+            border-radius: 50%;
+            animation: spin-logo 20s linear infinite;
+        }
+
+        @keyframes spin-logo {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            line-height: 1.4;
+            opacity: 0;
+            animation: fade-in 2s forwards 1s;
+        }
+
+        p {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            opacity: 0;
+            animation: fade-in 2s forwards 2s;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: red;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 5px #b30000;
+            transition: all 0.3s ease;
+            transform: perspective(1px) translateZ(0);
+            animation: fade-in 2s forwards 3s;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5vh 5%;
+        }
+
+        .image-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 60%;
+            padding: 5vh 0;
+        }
+
+        .image-container img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            opacity: 0;
+            animation: fade-in-up 2s forwards;
+        }
+
+        .image-container .service-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+            font-size: 1rem;
+            text-align: center;
+            width: 100%;
+            animation: fade-in-up 2.5s forwards;
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .copy-text {
+            width: 30%;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #fff;
+            text-align: right;
+        }
+
+        .sobre-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 5vh 5%;
+        }
+
+        .sobre {
+            max-width: 60%;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            animation: fade-in-up 2s forwards;
+        }
+
+        .sobre h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .sobre p {
+            font-family: 'Georgia', serif;
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 0;
+        }
+
+        .sobre-copy {
+            width: 30%;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #fff;
+            text-align: left;
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .floating-whatsapp.show {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        footer .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #25D366;
+        }
+
+        footer p {
+            margin: 10px 0 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-section">
+        <div class="overlay">
+            <img src="imagens/Design sem nome.png" class="logo" alt="Logo">
+            <h1>ESTILO É UM REFLEXO DA SUA<br>ATITUDE E SUA PERSONALIDADE</h1>
+            <p>Horário de funcionamento de 09:00 às 00:00</p>
+            <a href="https://wa.me/5564992142391?text=Olá!%20Gostaria%20de%20marcar%20um%20horário%20✂️%20.%20Qual%20seria%20a%20disponibilidade%20⏰?"
+                class="btn-whatsapp">Marcar Horário</a>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="image-container">
+            <div style="position:relative;">
+                <img src="imagens/pexels-tony-clay-312794-933949.jpg" alt="Corte de Cabelo">
+                <div class="service-label">Corte de Cabelo  25,00$</div>
+            </div>
+            <div style="position:relative;">
+                <img src="imagens/pexels-cottonbro-3998414.jpg" alt="Barba">
+                <div class="service-label">Barba  25,00$</div>
+            </div> 
+            <div style="position:relative;">
+                <img src="imagens/pexels-jibarofoto-1453005.jpg" alt="Tratamento Facial">
+                <div class="service-label">Cabelo e Barba  35,00$</div>
+            </div>
+        </div>
+
+        <div class="copy-text">
+            <p>Seja mais que um cliente, torne-se parte da nossa tradição.</p>
+        </div>
+    </div>
+
+    <div class="sobre-wrapper">
+        <div class="sobre-copy">
+            <p>Venha sentir a experiência de cuidar da sua aparência com profissionais de verdade!</p>
+        </div>
+
+        <div class="sobre">
+            <h1>Sobre nós</h1>
+            <p>Fundada há mais de 10 anos, a Barbearia do Zé tem como missão proporcionar a melhor experiência de
+                atendimento e cuidado com a aparência masculina. Nossa equipe é formada por profissionais qualificados
+                e apaixonados pelo que fazem, garantindo que você saia da nossa barbearia com confiança renovada.</p>
+        </div>
+    </div>
+    <!-- Google Maps iframe -->
+    <div style="text-align:center; margin-top: 3%;">
+        <h1>VENHA NOS CONHECER</h1>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31110.53186695352!2d-49.273246184717226!3d-16.65336920921121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef13a72e2d3d7%3A0xeabc8a2a6cfed1a4!2sSetor%20Central%2C%20Goi%C3%A2nia%20-%20GO%2C%2074003-010!5e0!3m2!1spt-BR!2sbr!4v1694191465353!5m2!1spt-BR!2sbr"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <footer>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2024 Barbearia do Zé. Todos os direitos reservados.</p>
+    </footer>
+
+    <div class="floating-whatsapp">
+        <a style="color: white;" href="https://wa.me/5564992142391?text=Olá!%20Gostaria%20de%20marcar%20um%20horário%20✂️%20.%20Qual%20seria%20a%20disponibilidade%20⏰?"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <script>
+        document.addEventListener("scroll", function () {
+            const floatingWhatsapp = document.querySelector(".floating-whatsapp");
+            if (window.scrollY > 400) {
+                floatingWhatsapp.classList.add("show");
+            } else {
+                floatingWhatsapp.classList.remove("show");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
