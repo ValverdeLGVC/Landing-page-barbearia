@@ -124,6 +124,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 5vh 5%;
+            flex-wrap: wrap;
         }
 
         .image-container {
@@ -276,6 +277,60 @@
             margin: 10px 0 0;
             font-size: 14px;
         }
+
+        @media (max-width: 600px) {
+            .content-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-container {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .image-container img {
+                width: 100%;
+                height: auto;
+                max-width: 300px;
+            }
+
+            .copy-text,
+            .sobre-copy {
+                width: 100%;
+                text-align: center;
+                padding: 0;
+                margin-top: 20px;
+            }
+
+            .sobre-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .sobre {
+                width: 100%;
+                max-width: 90%;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            .btn-whatsapp {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            .sobre-copy {
+                margin-bottom: 50px;
+            }
+        }
     </style>
 </head>
 
@@ -291,18 +346,19 @@
     </div>
 
     <div class="content-wrapper">
+        
         <div class="image-container">
             <div style="position:relative;">
                 <img src="imagens/pexels-tony-clay-312794-933949.jpg" alt="Corte de Cabelo">
-                <div class="service-label">Corte de Cabelo  25,00$</div>
+                <div class="service-label">Corte de Cabelo 25,00$</div>
             </div>
             <div style="position:relative;">
                 <img src="imagens/pexels-cottonbro-3998414.jpg" alt="Barba">
-                <div class="service-label">Barba  25,00$</div>
-            </div> 
+                <div class="service-label">Barba 25,00$</div>
+            </div>
             <div style="position:relative;">
                 <img src="imagens/pexels-jibarofoto-1453005.jpg" alt="Tratamento Facial">
-                <div class="service-label">Cabelo e Barba  35,00$</div>
+                <div class="service-label">Cabelo e Barba 35,00$</div>
             </div>
         </div>
 
@@ -341,7 +397,9 @@
     </footer>
 
     <div class="floating-whatsapp">
-        <a style="color: white;" href="https://wa.me/5564992142391?text=Olá!%20Gostaria%20de%20marcar%20um%20horário%20✂️%20.%20Qual%20seria%20a%20disponibilidade%20⏰?"><i class="fab fa-whatsapp"></i></a>
+        <a style="color: white;"
+            href="https://wa.me/5564992142391?text=Olá!%20Gostaria%20de%20marcar%20um%20horário%20✂️%20.%20Qual%20seria%20a%20disponibilidade%20⏰?"><i
+                class="fab fa-whatsapp"></i></a>
     </div>
 
     <script>
